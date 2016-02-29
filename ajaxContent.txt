@@ -1,0 +1,1 @@
+Toto je obsah získaný pomocí <strong>AJAX</strong>

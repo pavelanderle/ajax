@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Ajax Basic</title>
+
+    <script>
+        $(document).ready(function(){
+            $("#getContent-load").click(function(){
+               $("#ajaxContent").load("ajaxContent.txt");
+            });
+            $("#getContent-get").click(function(){
+                $.get("ajaxContent.php", { name: "John" }, function(data, status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                    $("#ajaxContent").html(data);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Obsah získaný pomocí AJAXu</h1>
+        <p id="ajaxContent">Zde bude obsah získaný pomocí funkce load()</p>
+    </div>
+    <button id="getContent-load">Načti obsah - load</button>
+    <button id="getContent-get">Načti obsah - get</button>
+</div>
+
+</body>
+</html>
