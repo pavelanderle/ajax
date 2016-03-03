@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Ajax Basic</title>
+
+    <script>
+        $(document).ready(function(){
+            $("#naseptavac").click(function(){
+                var key = $('#keyword').val();
+                $.get("naseptavac.php", { keyword: key }, function(data, status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                    $("#keywordResult").html(data);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+    <div class="jumbotron">
+        <h1>Našeptávač</h1>
+        <p id="ajaxContent">Ukázka definování našeptávače</p>
+    </div>
+
+    <form action="naseptavac.php" role="form">
+        <div class="form-group">
+            <label for="keyword">Klíčové slovo:</label>
+            <input type="text" class="form-control" id="keyword" name="keyword">
+        </div>
+        <input type="button" id="naseptavac" class="btn btn-default" value="Najdi slovo">
+    </form>
+    <p id="keywordResult">Nalezené slovo:</p>
+
+    <h3>Samostatná práce</h3>
+    <p>Upravte práci dle následujících požadavků:</p>
+    <ol>
+        <li>Načtení slov se provede po zapsání znaku do texového pole</li>
+        <li>Slova se budou načítat z DB</li>
+        <li>Vyhledaná slova se budou zapisovat jako položky do selectu </li>
+    </ol>
+</div>
+
+</body>
+</html>

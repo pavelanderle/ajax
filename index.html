@@ -24,14 +24,6 @@
                     $("#ajaxContent").html(data);
                 });
             });
-
-            $("#naseptavac").click(function(){
-                var key = $('#keyword').val();
-                $.get("naseptavac.php", { keyword: key }, function(data, status){
-                    //alert("Data: " + data + "\nStatus: " + status);
-                    $("#keywordResult").html(data);
-                });
-            });
         });
     </script>
 
@@ -44,15 +36,8 @@
     </div>
     <button id="getContent-load">Načti obsah - load</button>
     <button id="getContent-get">Načti obsah - get</button>
-
-    <form action="naseptavac.php" role="form">
-        <div class="form-group">
-            <label for="keyword">Klíčové slovo:</label>
-            <input type="text" class="form-control" id="keyword" name="keyword">
-        </div>
-        <input type="button" id="naseptavac" class="btn btn-default" value="Najdi slovo">
-    </form>
-    <p id="keywordResult">Nalezené slovo:</p>
+    <br><br>
+    <div><a class="btn btn-primary" href="naseptavac.html">Našeptávač</a></div>
 </div>
 
 </body>
