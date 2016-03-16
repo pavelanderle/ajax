@@ -24,6 +24,14 @@
                     $("#ajaxContent").html(data);
                 });
             });
+
+            $("button").click(function(){
+                $.getJSON("jsonExample.php", function(result){
+                    $.each(result, function(i, field){
+                        $("#json").append(field + " ");
+                    });
+                });
+            });
         });
     </script>
 
@@ -33,9 +41,11 @@
     <div class="jumbotron">
         <h1>Obsah získaný pomocí AJAXu</h1>
         <p id="ajaxContent">Zde bude obsah získaný pomocí funkce load()</p>
+        <div id="json">Tady JSON</div>
     </div>
     <button id="getContent-load">Načti obsah - load</button>
     <button id="getContent-get">Načti obsah - get</button>
+    <button id="getContent-JSON">Načti obsah - JSON</button>
     <br><br>
     <div><a class="btn btn-primary" href="naseptavac.html">Našeptávač</a></div>
 </div>

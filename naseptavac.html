@@ -17,7 +17,6 @@
             $("#naseptavac").click(function(){
                 var key = $('#keyword').val();
                 $.get("naseptavac.php", { keyword: key }, function(data, status){
-                    //alert("Data: " + data + "\nStatus: " + status);
                     $("#keywordResult").html(data);
                 });
             });
