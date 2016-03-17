@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+    <title>Přehled krajů a okresů ČR</title>
+
+    <script>
+        $(document).ready(function(){
+            $("#kraje").change(function(){
+                var key = $("#kraje").val();
+                //alert(key);
+                $.get("krajeCR.php", { krajCR: key }, function(data, status){
+                    //alert("Data: " + data + "\nStatus: " + status);
+                    $("#okresy").html(data);
+                });
+            });
+        });
+    </script>
+
+</head>
+<body>
+<div class="container">
+<form role="form">
+    <div class="form-group">
+        <label for="kraje">Seznam Krajů ČR:</label>
+        <select class="form-control" id="kraje">
+            <option value="0">Vyberte kraj</option>
+            <option value="1">Karlovarský kraj</option>
+            <option value="2">Středočeský kraj</option>
+            <option value="3">Jihočeský kraj</option>
+            <option value="4">Jihomoravský kraj</option>
+            <option value="5">Královeradecký kraj</option>
+            <option value="6">Pardubický kraj</option>
+            <option value="7">Moravskoslezký kraj</option>
+            <option value="8">Liberecký kraj</option>
+            <option value="9">Olomoucký kraj</option>
+            <option value="10">Kraj Vysočina</option>
+            <option value="11">Ústecký kraj</option>
+            <option value="12">Zlýnský kraj</option>
+            <option value="13">Plzeňský kraj</option>
+            <option value="14">Hlavní město Praha</option>
+        </select>
+    </div>
+    <div class="form-group">
+        <label for="okresy">Seznam okresů vybraného kraje:</label>
+        <select class="form-control" id="okresy">
+            <option value="1">okres Sokolov</option>
+        </select>
+    </div>
+</form>
+</div>
+</body>
+</html>

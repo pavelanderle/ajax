@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli("db4free.net:3306","anderle","nagano","anderle_db");
+    $conn = new mysqli("db4free.net","anderle","nagano","anderle_db");
 
     if ($conn->connect_error) {
         die("Connection failed: " . $conn->connect_error);
