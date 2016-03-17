@@ -18,11 +18,10 @@ $sql = "SELECT nazev from okres WHERE kraj_id = '$krajCR'";
 
 $res=$conn->query($sql);
 $out = "";
-while($kraj = $res->fetch_assoc()){
-    $krajItem = $kraj["nazev"];
-    $out .= "<option value='$krajItem'>$krajItem</option>";
+while($okres = $res->fetch_assoc()){
+    $okresy[] = $okres["nazev"];
 }
 
-echo $out;
+echo json_encode($okresy);
 
 $conn->close();

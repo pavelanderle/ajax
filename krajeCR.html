@@ -17,9 +17,12 @@
             $("#kraje").change(function(){
                 var key = $("#kraje").val();
                 //alert(key);
-                $.get("krajeCR.php", { krajCR: key }, function(data, status){
-                    //alert("Data: " + data + "\nStatus: " + status);
-                    $("#okresy").html(data);
+                $.getJSON("krajeCR.php", { krajCR: key }, function(data){
+                    $("#okresy").html("");
+                    $.each(data,function(index, value){
+                        $("#okresy").append("<option value="+index+">"+value+"</option>");
+                    });
+                    //$("#okresy").html(data);
                 });
             });
         });
@@ -44,7 +47,7 @@
             <option value="9">Olomoucký kraj</option>
             <option value="10">Kraj Vysočina</option>
             <option value="11">Ústecký kraj</option>
-            <option value="12">Zlýnský kraj</option>
+            <option value="12">Zlínský kraj</option>
             <option value="13">Plzeňský kraj</option>
             <option value="14">Hlavní město Praha</option>
         </select>
@@ -52,7 +55,7 @@
     <div class="form-group">
         <label for="okresy">Seznam okresů vybraného kraje:</label>
         <select class="form-control" id="okresy">
-            <option value="1">okres Sokolov</option>
+            <option value="0">Vyberte okres ...</option>
         </select>
     </div>
 </form>
