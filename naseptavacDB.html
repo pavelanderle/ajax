@@ -16,10 +16,15 @@
         $(document).ready(function(){
             $("#keyword").keyup(function(){
                 var key = $('#keyword').val();
-                $.get("naseptavacDB.php", { keyword: key }, function(data, status){
-                    //alert("Data: " + data + "\nStatus: " + status);
-                    $("#datalist1").html(data);
+                $.getJSON("naseptavacDB.php", { keyword: key }, function(result){
+                  $("#datalist1").empty();
+                  $.each(result, function(i, field){
+                    $("#datalist1").append("<option value='" +
+                field + "'>'"+ field +"'</option>");
+                  });
                 });
+
+
             });
         });
     </script>
@@ -32,15 +37,20 @@
         <p id="ajaxContent">Ukázka definování našeptávače z DB</p>
     </div>
 
-    <form action="naseptavac.php" role="form">
+    <form role="form">
         <div class="form-group">
             <label for="keyword">Klíčové slovo:</label>
-            <input class="form-control" list="datalist1" name="keyword" id="keyword">
+            <input class="form-control" list="datalist1" name="keyword" id="keyword" autocomplete="off">
             <datalist  id="datalist1">
-                <option value=""></option>
+                <option value="jhgjhg">hgjhg</option>
             </datalist>
         </div>
+        <button type="button" id="button">Zjisti</button>
     </form>
+
+    <div class="pokus">
+
+    </div>
 
 </div>
 
