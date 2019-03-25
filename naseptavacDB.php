@@ -1,5 +1,5 @@
 <?php
-    $conn = new mysqli("localhost","root","root","ajax");
+    $conn = new mysqli("localhost","root","","ajax");
     $conn->query("SET CHARACTER SET UTF8");
 
     if ($conn->connect_error) {

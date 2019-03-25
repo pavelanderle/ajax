@@ -6,8 +6,8 @@
  * Time: 11:11
  */
 
-$conn = new mysqli("db4free.net","anderle","nagano","anderle_db");
-
+$conn = new mysqli("localhost","root","","mapacr");
+$conn->query("SET CHARACTER SET UTF8");
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
@@ -22,6 +22,6 @@ while($okres = $res->fetch_assoc()){
     $okresy[] = $okres["nazev"];
 }
 
-echo json_encode($okresy);
+echo json_encode($okresy, JSON_UNESCAPED_UNICODE);
 
 $conn->close();
